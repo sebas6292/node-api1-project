@@ -57,13 +57,13 @@ server.delete('/api/users/:id', async (req, res) => {
 })
 
 server.post('/api/users', (req, res) => {
-    const user = req.body
+    const user = req.body // creates the post 
     if (!user.name || !user.bio) {
         res.status(400).json({ 
             message: "Please provide name and bio for the user"
         })
     } else {
-        User.insert(user)
+        User.insert(user) 
         .then(createdUser => {
            res.status(201).json(createdUser)
         })
